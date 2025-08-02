@@ -10,7 +10,7 @@ from transformers import AutoTokenizer, AutoModelForSequenceClassification
 app = Flask(__name__, template_folder=r"Paste the file path here") #pip install flask     
 
 # Login and load model
-login(os.getenv("HUGGINGFACE_TOKEN"))  #"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"
+login(os.getenv("HUGGINGFACE_TOKEN")) 
 model_name = "bhadresh-savani/distilbert-base-uncased-emotion"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForSequenceClassification.from_pretrained(model_name)
@@ -74,5 +74,6 @@ def index():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
 
 
