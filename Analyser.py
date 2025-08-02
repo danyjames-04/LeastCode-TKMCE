@@ -6,17 +6,17 @@ import torch
 import lyricsgenius
 from transformers import AutoTokenizer, AutoModelForSequenceClassification 
 
-app = Flask(__name__, template_folder=r"Paste the file path here") #pip install flask
+app = Flask(__name__, template_folder=r"Paste the file path here") #pip install flask     
 
 # Login and load model
-login("generate a hugging face token and paste here")
+login("generate a hugging face token and paste here")  #"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"
 model_name = "bhadresh-savani/distilbert-base-uncased-emotion"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForSequenceClassification.from_pretrained(model_name)
 id2label = model.config.id2label
 
 # LyricsGenius setup
-genius = lyricsgenius.Genius("generate genius api token and paster here", #pip install lyricgenius
+genius = lyricsgenius.Genius("generate genius api token and paster here", #pip install lyricgenius "b7qmUWe3Y0qP5EQ0X1DpONj0rtPjxrcWryqwXT6Z9Ve05RWDP10GgnRpzG79IdXK"
                              skip_non_songs=True,
                              excluded_terms=["(Remix)", "(Live)"],
                              verbose=False)
@@ -71,3 +71,4 @@ def index():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
